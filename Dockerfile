@@ -25,6 +25,8 @@ RUN rm php-*.tar.gz
 RUN mv php-src-* php-src
 
 WORKDIR /root/php-src
+ADD ./makedist /root/php-src/makedist
+ADD ./Makefile.frag /root/php-src/pear/Makefile.frag
 RUN ./buildconf --force
 
 ENV CONFIGURE_STRING="--prefix=/etc/php7 \
